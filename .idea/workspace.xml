@@ -26,14 +26,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ymj07/PycharmProjects/Graceful-Silvers&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "last_opened_file_path": "C:/Users/ymj07/PycharmProjects/Graceful-Silvers"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ymj07\PycharmProjects\Graceful-Silvers\hyowon" />
@@ -73,7 +75,7 @@
       <updated>1680187874717</updated>
       <workItem from="1680187876012" duration="721000" />
       <workItem from="1680324090624" duration="2454000" />
-      <workItem from="1680498751390" duration="1416000" />
+      <workItem from="1680498751390" duration="2040000" />
     </task>
     <servers />
   </component>
