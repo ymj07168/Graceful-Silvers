@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0376f213-b7ef-4e97-903d-de60be491011" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/yeji_/codeup/codeup_yeji.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yujin/chap03/3-1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +41,12 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "true",
-    "last_opened_file_path": "C:/Users/ymj07/PycharmProjects/Graceful-Silvers"
+    "last_opened_file_path": "C:/Users/ymj07/PycharmProjects/Graceful-Silvers",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -84,6 +89,7 @@
       <workItem from="1680187876012" duration="721000" />
       <workItem from="1680324090624" duration="2454000" />
       <workItem from="1680499384477" duration="239000" />
+      <workItem from="1680956217473" duration="337000" />
     </task>
     <servers />
   </component>
