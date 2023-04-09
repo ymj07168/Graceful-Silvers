@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0376f213-b7ef-4e97-903d-de60be491011" name="Changes" comment="예지_codeup 코드 제출">
-      <change afterPath="$PROJECT_DIR$/yeji_/chapter3/3-1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yeji_/chapter3/3-2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yeji_/chapter3/3-3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yeji_/chapter3/3-4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0376f213-b7ef-4e97-903d-de60be491011" name="Changes" comment="week2 ch.03 예제, 실전 문제 코드" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,7 +171,7 @@
       <workItem from="1680324090624" duration="2454000" />
       <workItem from="1680499467496" duration="173000" />
       <workItem from="1680499646087" duration="1607000" />
-      <workItem from="1681039900105" duration="4906000" />
+      <workItem from="1681039900105" duration="5242000" />
     </task>
     <task id="LOCAL-00001" summary="예지_codeup 코드 제출">
       <created>1680500418165</created>
@@ -186,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680500418165</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="week2 ch.03 예제, 실전 문제 코드">
+      <created>1681057930488</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681057930488</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,7 +206,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="예지_codeup 코드 제출" />
-    <option name="LAST_COMMIT_MESSAGE" value="예지_codeup 코드 제출" />
+    <MESSAGE value="week2 ch.03 예제, 실전 문제 코드" />
+    <option name="LAST_COMMIT_MESSAGE" value="week2 ch.03 예제, 실전 문제 코드" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
