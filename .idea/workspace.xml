@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0376f213-b7ef-4e97-903d-de60be491011" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/yujin/chap03/3-1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,28 +36,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "true",
-    "last_opened_file_path": "C:/Users/ymj07/PycharmProjects/Graceful-Silvers",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ymj07/PycharmProjects/Graceful-Silvers&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ymj07\PycharmProjects\Graceful-Silvers\hyowon" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.3-4">
-    <configuration name="3-1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+
+  <component name="RunManager" selected="Python.3-4-1이 될 때까지">
+    <configuration name="3-2 수열 이용" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+
       <module name="Graceful-Silvers" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -63,12 +68,16 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yeji_/chapter3" />
+
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yujin/chap03" />
+
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yeji_/chapter3/3-1.py" />
+
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yujin/chap03/3-2 수열 이용.py" />
+
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -85,12 +94,14 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yeji_/chapter3" />
+
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yujin/chap03" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yeji_/chapter3/3-2.py" />
+
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yujin/chap03/3-2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -107,12 +118,16 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yeji_/chapter3" />
+
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yujin/chap03" />
+
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yeji_/chapter3/3-3.py" />
+
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yujin/chap03/3-3.py" />
+
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -121,7 +136,8 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="3-4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+
+    <configuration name="3-4-1이 될 때까지" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Graceful-Silvers" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -129,12 +145,38 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yeji_/chapter3" />
+
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yujin/chap03" />
+
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yeji_/chapter3/3-4.py" />
+
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yujin/chap03/3-4-1이 될 때까지.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="3-4-N이매우클때" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Graceful-Silvers" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yujin/chap03" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yujin/chap03/3-4-N이매우클때.py" />
+
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -167,10 +209,13 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.3-4" />
+
+        <item itemvalue="Python.3-4-1이 될 때까지" />
+        <item itemvalue="Python.3-4-N이매우클때" />
         <item itemvalue="Python.3-3" />
+        <item itemvalue="Python.3-2 수열 이용" />
         <item itemvalue="Python.3-2" />
-        <item itemvalue="Python.3-1" />
+
       </list>
     </recent_temporary>
   </component>
@@ -188,7 +233,8 @@
       <workItem from="1680499646087" duration="1607000" />
       <workItem from="1681039900105" duration="5242000" />
       <workItem from="1680499384477" duration="239000" />
-      <workItem from="1680956217473" duration="337000" />
+      <workItem from="1680956217473" duration="4208000" />
+      <workItem from="1681079839185" duration="4213000" />
     </task>
     <task id="LOCAL-00001" summary="예지_codeup 코드 제출">
       <created>1680500418165</created>
@@ -243,10 +289,14 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Graceful_Silvers$3_2.coverage" NAME="3-2 Coverage Results" MODIFIED="1681049141276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yeji_/chapter3" />
-    <SUITE FILE_PATH="coverage/Graceful_Silvers$3_3.coverage" NAME="3-3 Coverage Results" MODIFIED="1681052524014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yeji_/chapter3" />
-    <SUITE FILE_PATH="coverage/Graceful_Silvers$3_4.coverage" NAME="3-4 Coverage Results" MODIFIED="1681057590027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yeji_/chapter3" />
-    <SUITE FILE_PATH="coverage/Graceful_Silvers$3_1.coverage" NAME="3-1 Coverage Results" MODIFIED="1681048292652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yeji_/chapter3" />
+
+    <SUITE FILE_PATH="coverage/2023_1__Graceful_Silvers$3_3.coverage" NAME="3-3 Coverage Results" MODIFIED="1681080801744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yujin/chap03" />
+    <SUITE FILE_PATH="coverage/2023_1__Graceful_Silvers$3_2__.coverage" NAME="3-2 수열 이용 Coverage Results" MODIFIED="1680960682191" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yujin/chap03" />
+    <SUITE FILE_PATH="coverage/2023_1__Graceful_Silvers$3_2.coverage" NAME="3-2 Coverage Results" MODIFIED="1680959956118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yujin/chap03" />
+    <SUITE FILE_PATH="coverage/2023_1__Graceful_Silvers$3_4_1__.coverage" NAME="3-4-1이 될 때까지 Coverage Results" MODIFIED="1681082862642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yujin/chap03" />
+    <SUITE FILE_PATH="coverage/2023_1__Graceful_Silvers$3_4_N.coverage" NAME="3-4-N이매우클때 Coverage Results" MODIFIED="1681082800486" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yujin/chap03" />
+
     <SUITE FILE_PATH="coverage/Graceful_Silvers$main.coverage" NAME="main Coverage Results" MODIFIED="1680325958980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/2023_1__Graceful_Silvers$3_1.coverage" NAME="3-1 Coverage Results" MODIFIED="1680957575674" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yujin/chap03" />
   </component>
 </project>
