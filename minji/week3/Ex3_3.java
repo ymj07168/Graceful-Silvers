@@ -3,7 +3,6 @@ package org.example;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Ex3_3 {
@@ -14,20 +13,16 @@ public class Ex3_3 {
 		int N = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
 
-		int[][] cards = new int[N][M];
-		int[] mins = new int[N];
+		int max = 0;
 		for (int i = 0; i < N; i++) {
-			int min = 100;
+			int min = 10001;
 			for (int j = 0; j < M; j++) {
-				cards[i][j] = Integer.parseInt(st.nextToken());
-				if (cards[i][j] < min) min = cards[i][j];
+				int num = Integer.parseInt(st.nextToken());
+				if (num < min) min = num;
 			}
-			mins[i] = min;
+			if (min > max) max = min;
 		}
 
-		Arrays.sort(mins);
-		System.out.println(mins[N-1]);
-
-
+		System.out.println(max);
 	}
 }
