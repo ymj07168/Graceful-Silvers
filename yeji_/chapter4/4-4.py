@@ -16,6 +16,7 @@ for i in range(n):
 dx = [-1, 0, 1, 0]
 dy = [0, 1, 0, -1]
 
+
 #왼쪽으로 회전 turn_left라는 글로벌 키워드 사용
 def turn_left():
     global direction
