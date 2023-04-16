@@ -1,0 +1,675 @@
+Index: yeji_/chapter4/4-3.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/yeji_/chapter4/4-3.py b/yeji_/chapter4/4-3.py
+new file mode 100644
+--- /dev/null	(date 1681578764984)
++++ b/yeji_/chapter4/4-3.py	(date 1681578764984)
+@@ -0,0 +1,15 @@
++now = input()
++row = int(now[1])
++column = ord(now[0]) - 96   #ord[a] 가 97이여서 96을 뺴줌..
++
++steps = [(-2, -1), (-2, 1), (2, 1), (2, -1), (-1, -2), (1, -2), (-1, 2), (1, 2)]
++
++count = 0
++for step in steps:
++    next_column = column + step[0]
++    next_row = row + step[1]
++    if next_column > 1 and next_row  > 1 and next_column <= 8 and next_row <= 8:
++        count +=1
++
++
++print(count)
+\ No newline at end of file
+Index: yeji_/chapter4/4-4.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/yeji_/chapter4/4-4.py b/yeji_/chapter4/4-4.py
+new file mode 100644
+--- /dev/null	(date 1681659685982)
++++ b/yeji_/chapter4/4-4.py	(date 1681659685982)
+@@ -0,0 +1,61 @@
++n, m = map(int, input().split())
++
++#방문한 위치 저장하기 위한 맵 0으로 초기화
++d = [[0] * m for _ in range(n)]
++
++#현재 캐릭터의 좌표, 방향 입력박기
++x, y, direction = map(int, input().split())
++d[x][y] = 1 #현재 좌표 방문 처리
++
++#전체 맵 입력박디
++array = []
++for i in range(n):
++    array.append(list(map(int, input().split())))
++
++#북, 동, 남, 서 방향 정의
++dx = [-1, 0, 1, 0]
++dy = [0, 1, 0, -1]
++
++#왼쪽으로 회전 turn_left라는 글로벌 키워드 사용
++def turn_left():
++    global direction
++    direction -= 1
++    if direction == -1:
++        direction = 3
++
++#시뮬레이션 시작
++count = 1
++turn_time = 0
++while True:
++    #왼쪽으로 회전
++    turn_left()
++    nx = x + dx[direction]
++    ny = y + dy[direction]
++    #회전한 이후 정면에 가보지 않은 칸이 존재하면 이동
++    if d[nx][ny] == 0 and array[nx][ny] == 0:
++        d[nx][ny] = 1 #가봤다고 체크하기
++        x = nx
++        y = ny
++        count += 1
++        turn_time = 0
++        continue
++
++    #회전한 이후 정면에 가보지 않은 칸이 없거나 바다인 경우
++    else:
++        turn_time += 1      #다시 왼쪽으로 회전함
++    #4방향 모두 갈 수 없는 경우
++    if turn_time == 4:
++        nx = x - dx[direction]
++        ny = y - dy[direction]
++
++        #뒤로 갈 수 있다면 이동하기
++        if array[nx][ny] == 0:
++            x = nx
++            y = ny
++        #뒤로 갈 곳이 없으면
++        else:
++            break
++
++        turn_time = 0
++
++print(count)
+\ No newline at end of file
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+--- /dev/null	(date 1681105349928)
++++ b/.gitignore	(date 1681105349928)
+@@ -0,0 +1,322 @@
++# Created by https://www.toptal.com/developers/gitignore/api/macos,pycharm,python
++# Edit at https://www.toptal.com/developers/gitignore?templates=macos,pycharm,python
++
++### macOS ###
++# General
++.DS_Store
++.AppleDouble
++.LSOverride
++
++# Icon must end with two \r
++Icon
++
++
++# Thumbnails
++._*
++
++# Files that might appear in the root of a volume
++.DocumentRevisions-V100
++.fseventsd
++.Spotlight-V100
++.TemporaryItems
++.Trashes
++.VolumeIcon.icns
++.com.apple.timemachine.donotpresent
++
++# Directories potentially created on remote AFP share
++.AppleDB
++.AppleDesktop
++Network Trash Folder
++Temporary Items
++.apdisk
++
++### macOS Patch ###
++# iCloud generated files
++*.icloud
++
++### PyCharm ###
++# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
++# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
++
++# User-specific stuff
++.idea/**/workspace.xml
++.idea/**/tasks.xml
++.idea/**/usage.statistics.xml
++.idea/**/dictionaries
++.idea/**/shelf
++
++# AWS User-specific
++.idea/**/aws.xml
++
++# Generated files
++.idea/**/contentModel.xml
++
++# Sensitive or high-churn files
++.idea/**/dataSources/
++.idea/**/dataSources.ids
++.idea/**/dataSources.local.xml
++.idea/**/sqlDataSources.xml
++.idea/**/dynamic.xml
++.idea/**/uiDesigner.xml
++.idea/**/dbnavigator.xml
++
++# Gradle
++.idea/**/gradle.xml
++.idea/**/libraries
++
++# Gradle and Maven with auto-import
++# When using Gradle or Maven with auto-import, you should exclude module files,
++# since they will be recreated, and may cause churn.  Uncomment if using
++# auto-import.
++# .idea/artifacts
++# .idea/compiler.xml
++# .idea/jarRepositories.xml
++# .idea/modules.xml
++# .idea/*.iml
++# .idea/modules
++# *.iml
++# *.ipr
++
++# CMake
++cmake-build-*/
++
++# Mongo Explorer plugin
++.idea/**/mongoSettings.xml
++
++# File-based project format
++*.iws
++
++# IntelliJ
++out/
++
++# mpeltonen/sbt-idea plugin
++.idea_modules/
++
++# JIRA plugin
++atlassian-ide-plugin.xml
++
++# Cursive Clojure plugin
++.idea/replstate.xml
++
++# SonarLint plugin
++.idea/sonarlint/
++
++# Crashlytics plugin (for Android Studio and IntelliJ)
++com_crashlytics_export_strings.xml
++crashlytics.properties
++crashlytics-build.properties
++fabric.properties
++
++# Editor-based Rest Client
++.idea/httpRequests
++
++# Android studio 3.1+ serialized cache file
++.idea/caches/build_file_checksums.ser
++
++### PyCharm Patch ###
++# Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
++
++# *.iml
++# modules.xml
++# .idea/misc.xml
++# *.ipr
++
++# Sonarlint plugin
++# https://plugins.jetbrains.com/plugin/7973-sonarlint
++.idea/**/sonarlint/
++
++# SonarQube Plugin
++# https://plugins.jetbrains.com/plugin/7238-sonarqube-community-plugin
++.idea/**/sonarIssues.xml
++
++# Markdown Navigator plugin
++# https://plugins.jetbrains.com/plugin/7896-markdown-navigator-enhanced
++.idea/**/markdown-navigator.xml
++.idea/**/markdown-navigator-enh.xml
++.idea/**/markdown-navigator/
++
++# Cache file creation bug
++# See https://youtrack.jetbrains.com/issue/JBR-2257
++.idea/$CACHE_FILE$
++
++# CodeStream plugin
++# https://plugins.jetbrains.com/plugin/12206-codestream
++.idea/codestream.xml
++
++# Azure Toolkit for IntelliJ plugin
++# https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij
++.idea/**/azureSettings.xml
++
++### Python ###
++# Byte-compiled / optimized / DLL files
++__pycache__/
++*.py[cod]
++*$py.class
++
++# C extensions
++*.so
++
++# Distribution / packaging
++.Python
++build/
++develop-eggs/
++dist/
++downloads/
++eggs/
++.eggs/
++lib/
++lib64/
++parts/
++sdist/
++var/
++wheels/
++share/python-wheels/
++*.egg-info/
++.installed.cfg
++*.egg
++MANIFEST
++
++# PyInstaller
++#  Usually these files are written by a python script from a template
++#  before PyInstaller builds the exe, so as to inject date/other infos into it.
++*.manifest
++*.spec
++
++# Installer logs
++pip-log.txt
++pip-delete-this-directory.txt
++
++# Unit test / coverage reports
++htmlcov/
++.tox/
++.nox/
++.coverage
++.coverage.*
++.cache
++nosetests.xml
++coverage.xml
++*.cover
++*.py,cover
++.hypothesis/
++.pytest_cache/
++cover/
++
++# Translations
++*.mo
++*.pot
++
++# Django stuff:
++*.log
++local_settings.py
++db.sqlite3
++db.sqlite3-journal
++
++# Flask stuff:
++instance/
++.webassets-cache
++
++# Scrapy stuff:
++.scrapy
++
++# Sphinx documentation
++docs/_build/
++
++# PyBuilder
++.pybuilder/
++target/
++
++# Jupyter Notebook
++.ipynb_checkpoints
++
++# IPython
++profile_default/
++ipython_config.py
++
++# pyenv
++#   For a library or package, you might want to ignore these files since the code is
++#   intended to run in multiple environments; otherwise, check them in:
++# .python-version
++
++# pipenv
++#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
++#   However, in case of collaboration, if having platform-specific dependencies or dependencies
++#   having no cross-platform support, pipenv may install dependencies that don't work, or not
++#   install all needed dependencies.
++#Pipfile.lock
++
++# poetry
++#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
++#   This is especially recommended for binary packages to ensure reproducibility, and is more
++#   commonly ignored for libraries.
++#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
++#poetry.lock
++
++# pdm
++#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
++#pdm.lock
++#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
++#   in version control.
++#   https://pdm.fming.dev/#use-with-ide
++.pdm.toml
++
++# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
++__pypackages__/
++
++# Celery stuff
++celerybeat-schedule
++celerybeat.pid
++
++# SageMath parsed files
++*.sage.py
++
++# Environments
++.env
++.venv
++env/
++venv/
++ENV/
++env.bak/
++venv.bak/
++
++# Spyder project settings
++.spyderproject
++.spyproject
++
++# Rope project settings
++.ropeproject
++
++# mkdocs documentation
++/site
++
++# mypy
++.mypy_cache/
++.dmypy.json
++dmypy.json
++
++# Pyre type checker
++.pyre/
++
++# pytype static type analyzer
++.pytype/
++
++# Cython debug symbols
++cython_debug/
++
++# PyCharm
++#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
++#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
++#  and can be added to the global gitignore or merged into this file.  For a more nuclear
++#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
++#.idea/
++
++### Python Patch ###
++# Poetry local configuration file - https://python-poetry.org/docs/configuration/#local-configuration
++poetry.toml
++
++# ruff
++.ruff_cache/
++
++# LSP config files
++pyrightconfig.json
++
++# End of https://www.toptal.com/developers/gitignore/api/macos,pycharm,python
+\ No newline at end of file
+Index: yeji_/chapter4/4-1.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/yeji_/chapter4/4-1.py b/yeji_/chapter4/4-1.py
+new file mode 100644
+--- /dev/null	(date 1681487911192)
++++ b/yeji_/chapter4/4-1.py	(date 1681487911192)
+@@ -0,0 +1,21 @@
++n = int(input())
++movelist = input().split()
++x = 1
++y = 1
++
++dx = [0, 0, -1 ,1]
++dy = [-1, 1, 0, 0 ]
++move = ['L', 'R', 'U', 'D']
++for plan in movelist:
++    for i in range(len(move)):
++        if plan == move[i]:
++            nx = x + dx[i]
++            ny = y + dy[i]
++    if nx < 1 or ny < 1 or nx > n or ny > n:
++        continue
++    x, y = nx, ny
++
++print(x, y)
++
++
++
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"0376f213-b7ef-4e97-903d-de60be491011\" name=\"Changes\" comment=\"week2 ch.03 예제, 실전 문제 코드\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Python Script\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2NjqX4JH0PzEVUwlR2ztqqMAivW\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/ymj07/PycharmProjects/Graceful-Silvers&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"C:\\Users\\ymj07\\PycharmProjects\\Graceful-Silvers\\hyowon\" />\n    </key>\n  </component>\n  <component name=\"RunManager\" selected=\"Python.3-4\">\n    <configuration name=\"3-1\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"Graceful-Silvers\" />\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\n      <option name=\"PARENT_ENVS\" value=\"true\" />\n      <envs>\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\n      </envs>\n      <option name=\"SDK_HOME\" value=\"\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/yeji_/chapter3\" />\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/yeji_/chapter3/3-1.py\" />\n      <option name=\"PARAMETERS\" value=\"\" />\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\n      <option name=\"MODULE_MODE\" value=\"false\" />\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\n      <option name=\"INPUT_FILE\" value=\"\" />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"3-2\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"Graceful-Silvers\" />\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\n      <option name=\"PARENT_ENVS\" value=\"true\" />\n      <envs>\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\n      </envs>\n      <option name=\"SDK_HOME\" value=\"\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/yeji_/chapter3\" />\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/yeji_/chapter3/3-2.py\" />\n      <option name=\"PARAMETERS\" value=\"\" />\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\n      <option name=\"MODULE_MODE\" value=\"false\" />\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\n      <option name=\"INPUT_FILE\" value=\"\" />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"3-3\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"Graceful-Silvers\" />\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\n      <option name=\"PARENT_ENVS\" value=\"true\" />\n      <envs>\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\n      </envs>\n      <option name=\"SDK_HOME\" value=\"\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/yeji_/chapter3\" />\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/yeji_/chapter3/3-3.py\" />\n      <option name=\"PARAMETERS\" value=\"\" />\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\n      <option name=\"MODULE_MODE\" value=\"false\" />\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\n      <option name=\"INPUT_FILE\" value=\"\" />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"3-4\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"Graceful-Silvers\" />\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\n      <option name=\"PARENT_ENVS\" value=\"true\" />\n      <envs>\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\n      </envs>\n      <option name=\"SDK_HOME\" value=\"\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$/yeji_/chapter3\" />\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/yeji_/chapter3/3-4.py\" />\n      <option name=\"PARAMETERS\" value=\"\" />\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\n      <option name=\"MODULE_MODE\" value=\"false\" />\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\n      <option name=\"INPUT_FILE\" value=\"\" />\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"codeup\" type=\"PythonConfigurationType\" factoryName=\"Python\" nameIsGenerated=\"true\">\n      <module name=\"Graceful-Silvers\" />\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\n      <option name=\"PARENT_ENVS\" value=\"true\" />\n      <envs>\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\n      </envs>\n      <option name=\"SDK_HOME\" value=\"\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\n      <EXTENSION ID=\"PythonCoverageRunConfigurationExtension\" runner=\"coverage.py\" />\n      <option name=\"SCRIPT_NAME\" value=\"C:\\Users\\ymj07\\PycharmProjects\\Graceful-Silvers\\hyowon\\codeup.py\" />\n      <option name=\"PARAMETERS\" value=\"\" />\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\n      <option name=\"MODULE_MODE\" value=\"false\" />\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\n      <option name=\"INPUT_FILE\" value=\"\" />\n      <method v=\"2\" />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Python.3-4\" />\n        <item itemvalue=\"Python.3-3\" />\n        <item itemvalue=\"Python.3-2\" />\n        <item itemvalue=\"Python.3-1\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"0376f213-b7ef-4e97-903d-de60be491011\" name=\"Changes\" comment=\"\" />\n      <created>1680187874717</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1680187874717</updated>\n      <workItem from=\"1680187876012\" duration=\"721000\" />\n      <workItem from=\"1680324090624\" duration=\"2454000\" />\n      <workItem from=\"1680499467496\" duration=\"173000\" />\n      <workItem from=\"1680499646087\" duration=\"1607000\" />\n      <workItem from=\"1681039900105\" duration=\"5242000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"예지_codeup 코드 제출\">\n      <created>1680500418165</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1680500418165</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"week2 ch.03 예제, 실전 문제 코드\">\n      <created>1681057930488</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1681057930488</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"3\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"예지_codeup 코드 제출\" />\n    <MESSAGE value=\"week2 ch.03 예제, 실전 문제 코드\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"week2 ch.03 예제, 실전 문제 코드\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"python-line\">\n          <url>file://$PROJECT_DIR$/hyowon/codeup.py</url>\n          <line>10</line>\n          <option name=\"timeStamp\" value=\"1\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"python-line\">\n          <url>file://$PROJECT_DIR$/yeji_/chapter3/3-2.py</url>\n          <line>44</line>\n          <option name=\"timeStamp\" value=\"2\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\n    <SUITE FILE_PATH=\"coverage/Graceful_Silvers$3_2.coverage\" NAME=\"3-2 Coverage Results\" MODIFIED=\"1681049141276\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/yeji_/chapter3\" />\n    <SUITE FILE_PATH=\"coverage/Graceful_Silvers$3_3.coverage\" NAME=\"3-3 Coverage Results\" MODIFIED=\"1681052524014\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/yeji_/chapter3\" />\n    <SUITE FILE_PATH=\"coverage/Graceful_Silvers$3_4.coverage\" NAME=\"3-4 Coverage Results\" MODIFIED=\"1681057590027\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/yeji_/chapter3\" />\n    <SUITE FILE_PATH=\"coverage/Graceful_Silvers$3_1.coverage\" NAME=\"3-1 Coverage Results\" MODIFIED=\"1681048292652\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$/yeji_/chapter3\" />\n    <SUITE FILE_PATH=\"coverage/Graceful_Silvers$main.coverage\" NAME=\"main Coverage Results\" MODIFIED=\"1680325958980\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"coverage.py\" COVERAGE_BY_TEST_ENABLED=\"true\" COVERAGE_TRACING_ENABLED=\"false\" WORKING_DIRECTORY=\"$PROJECT_DIR$\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 03af33476de95d1a7b185b272f62ff14174261b7)
++++ b/.idea/workspace.xml	(date 1681659700546)
+@@ -1,7 +1,14 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="0376f213-b7ef-4e97-903d-de60be491011" name="Changes" comment="week2 ch.03 예제, 실전 문제 코드" />
++    <list default="true" id="0376f213-b7ef-4e97-903d-de60be491011" name="Changes" comment="week2 ch.03 예제, 실전 문제 코드">
++      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/yeji_/chapter4/4-1.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/yeji_/chapter4/4-2.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/yeji_/chapter4/4-3.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/yeji_/chapter4/4-4.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -39,8 +46,8 @@
+       <recent name="C:\Users\ymj07\PycharmProjects\Graceful-Silvers\hyowon" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Python.3-4">
+-    <configuration name="3-1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++  <component name="RunManager" selected="Python.4-4">
++    <configuration name="3-4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="Graceful-Silvers" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+       <option name="PARENT_ENVS" value="true" />
+@@ -53,7 +60,7 @@
+       <option name="ADD_CONTENT_ROOTS" value="true" />
+       <option name="ADD_SOURCE_ROOTS" value="true" />
+       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yeji_/chapter3/3-1.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yeji_/chapter3/3-4.py" />
+       <option name="PARAMETERS" value="" />
+       <option name="SHOW_COMMAND_LINE" value="false" />
+       <option name="EMULATE_TERMINAL" value="false" />
+@@ -62,7 +69,7 @@
+       <option name="INPUT_FILE" value="" />
+       <method v="2" />
+     </configuration>
+-    <configuration name="3-2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++    <configuration name="4-1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="Graceful-Silvers" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+       <option name="PARENT_ENVS" value="true" />
+@@ -70,12 +77,34 @@
+         <env name="PYTHONUNBUFFERED" value="1" />
+       </envs>
+       <option name="SDK_HOME" value="" />
+-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yeji_/chapter3" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yeji_/chapter4" />
++      <option name="IS_MODULE_SDK" value="true" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yeji_/chapter4/4-1.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++    <configuration name="4-2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++      <module name="Graceful-Silvers" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yeji_/chapter4" />
+       <option name="IS_MODULE_SDK" value="true" />
+       <option name="ADD_CONTENT_ROOTS" value="true" />
+       <option name="ADD_SOURCE_ROOTS" value="true" />
+       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yeji_/chapter3/3-2.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yeji_/chapter4/4-2.py" />
+       <option name="PARAMETERS" value="" />
+       <option name="SHOW_COMMAND_LINE" value="false" />
+       <option name="EMULATE_TERMINAL" value="false" />
+@@ -84,7 +113,7 @@
+       <option name="INPUT_FILE" value="" />
+       <method v="2" />
+     </configuration>
+-    <configuration name="3-3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++    <configuration name="4-3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="Graceful-Silvers" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+       <option name="PARENT_ENVS" value="true" />
+@@ -92,12 +121,12 @@
+         <env name="PYTHONUNBUFFERED" value="1" />
+       </envs>
+       <option name="SDK_HOME" value="" />
+-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yeji_/chapter3" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yeji_/chapter4" />
+       <option name="IS_MODULE_SDK" value="true" />
+       <option name="ADD_CONTENT_ROOTS" value="true" />
+       <option name="ADD_SOURCE_ROOTS" value="true" />
+       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yeji_/chapter3/3-3.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yeji_/chapter4/4-3.py" />
+       <option name="PARAMETERS" value="" />
+       <option name="SHOW_COMMAND_LINE" value="false" />
+       <option name="EMULATE_TERMINAL" value="false" />
+@@ -106,7 +135,7 @@
+       <option name="INPUT_FILE" value="" />
+       <method v="2" />
+     </configuration>
+-    <configuration name="3-4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
++    <configuration name="4-4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="Graceful-Silvers" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+       <option name="PARENT_ENVS" value="true" />
+@@ -114,12 +143,12 @@
+         <env name="PYTHONUNBUFFERED" value="1" />
+       </envs>
+       <option name="SDK_HOME" value="" />
+-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yeji_/chapter3" />
++      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/yeji_/chapter4" />
+       <option name="IS_MODULE_SDK" value="true" />
+       <option name="ADD_CONTENT_ROOTS" value="true" />
+       <option name="ADD_SOURCE_ROOTS" value="true" />
+       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yeji_/chapter3/3-4.py" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/yeji_/chapter4/4-4.py" />
+       <option name="PARAMETERS" value="" />
+       <option name="SHOW_COMMAND_LINE" value="false" />
+       <option name="EMULATE_TERMINAL" value="false" />
+@@ -152,10 +181,11 @@
+     </configuration>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Python.4-4" />
++        <item itemvalue="Python.4-3" />
++        <item itemvalue="Python.4-2" />
++        <item itemvalue="Python.4-1" />
+         <item itemvalue="Python.3-4" />
+-        <item itemvalue="Python.3-3" />
+-        <item itemvalue="Python.3-2" />
+-        <item itemvalue="Python.3-1" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -172,6 +202,8 @@
+       <workItem from="1680499467496" duration="173000" />
+       <workItem from="1680499646087" duration="1607000" />
+       <workItem from="1681039900105" duration="5242000" />
++      <workItem from="1681102881816" duration="1390000" />
++      <workItem from="1681484860504" duration="8549000" />
+     </task>
+     <task id="LOCAL-00001" summary="예지_codeup 코드 제출">
+       <created>1680500418165</created>
+@@ -187,7 +219,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1681057930488</updated>
+     </task>
+-    <option name="localTasksCounter" value="3" />
++    <task id="LOCAL-00003" summary="week2 ch.03 예제, 실전 문제 코드">
++      <created>1681058343993</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1681058343993</updated>
++    </task>
++    <option name="localTasksCounter" value="4" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -227,8 +266,12 @@
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+     <SUITE FILE_PATH="coverage/Graceful_Silvers$3_2.coverage" NAME="3-2 Coverage Results" MODIFIED="1681049141276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yeji_/chapter3" />
++    <SUITE FILE_PATH="coverage/Graceful_Silvers$4_2.coverage" NAME="4-2 Coverage Results" MODIFIED="1681577511196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yeji_/chapter4" />
++    <SUITE FILE_PATH="coverage/Graceful_Silvers$4_3.coverage" NAME="4-3 Coverage Results" MODIFIED="1681578723057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yeji_/chapter4" />
++    <SUITE FILE_PATH="coverage/Graceful_Silvers$4_1.coverage" NAME="4-1 Coverage Results" MODIFIED="1681486911162" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yeji_/chapter4" />
+     <SUITE FILE_PATH="coverage/Graceful_Silvers$3_3.coverage" NAME="3-3 Coverage Results" MODIFIED="1681052524014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yeji_/chapter3" />
+     <SUITE FILE_PATH="coverage/Graceful_Silvers$3_4.coverage" NAME="3-4 Coverage Results" MODIFIED="1681057590027" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yeji_/chapter3" />
++    <SUITE FILE_PATH="coverage/Graceful_Silvers$4_4.coverage" NAME="4-4 Coverage Results" MODIFIED="1681659688616" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yeji_/chapter4" />
+     <SUITE FILE_PATH="coverage/Graceful_Silvers$3_1.coverage" NAME="3-1 Coverage Results" MODIFIED="1681048292652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/yeji_/chapter3" />
+     <SUITE FILE_PATH="coverage/Graceful_Silvers$main.coverage" NAME="main Coverage Results" MODIFIED="1680325958980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+   </component>
+Index: yeji_/chapter4/4-2.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/yeji_/chapter4/4-2.py b/yeji_/chapter4/4-2.py
+new file mode 100644
+--- /dev/null	(date 1681488257827)
++++ b/yeji_/chapter4/4-2.py	(date 1681488257827)
+@@ -0,0 +1,9 @@
++n = int(input())
++count = 0
++
++for h in range(n+1):
++    for m in range(60):
++        for s in range(60):
++            if '3' in str(h) + str(m) + str(s):
++                count += 1
++print(count)
+\ No newline at end of file
