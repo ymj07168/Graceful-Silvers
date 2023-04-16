@@ -61,7 +61,7 @@
       <recent name="C:\Users\ymj07\PycharmProjects\Graceful-Silvers\hyowon" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.4-4 게임 개발">
+  <component name="RunManager">
     <configuration name="3-4-1이 될 때까지" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Graceful-Silvers" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -194,15 +194,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.4-4 게임 개발" />
-        <item itemvalue="Python.4-3 왕실의 나이트" />
-        <item itemvalue="Python.4-2 시각" />
-        <item itemvalue="Python.4-1 상하좌우" />
-        <item itemvalue="Python.3-4-1이 될 때까지" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
