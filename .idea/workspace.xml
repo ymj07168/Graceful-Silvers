@@ -247,7 +247,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681660009097</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="ch.04 예제, 실전 문제 코드">
+      <created>1681660162506</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681660162506</updated>
+    </task>
+    <task id="LOCAL-00007" summary="ch.04 예제, 실전 문제 코드">
+      <created>1681660305889</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681660305889</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
