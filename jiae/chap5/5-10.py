@@ -33,5 +33,5 @@ for x in range(M):
     if icetray[y][x] == 0:
       dfs(icetray, x, y)
       icecream += 1
-      
+
 print(icecream)
