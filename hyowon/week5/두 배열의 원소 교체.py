@@ -11,7 +11,8 @@ B.sort(reverse=True)
 
 # 바꾸기
 for i in range(K):
-    A[i] = B[i]
+    if A[i] < B[i]:
+        A[i] = B[i]
 
 # 더하기
 sum = 0
